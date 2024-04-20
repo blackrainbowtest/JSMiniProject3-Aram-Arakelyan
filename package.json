@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "server": "cd backend && npm start",
-    "client": "cd frontend && npm start"
+    "client": "cd frontend && npm start",
+    "build": "cd frontend && npm i && cd .. && cd backend && npm i"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.3"
+  }
 }

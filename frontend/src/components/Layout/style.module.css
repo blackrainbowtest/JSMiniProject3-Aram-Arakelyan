@@ -1,0 +1,42 @@
+a:hover,
+a:active {
+    color: yellow;
+}
+
+.container {
+    max-width: 1170px;
+    padding: 0 1.75rem;
+    margin-inline: auto;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: #fff;
+    box-shadow: black;
+}
+
+nav .container .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .container .row .logo {
+    font-size: 2rem;
+
+}
+
+nav .container .row .menu_bar {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+nav .container .row .menu_bar li a {
+    text-transform: capitalize;
+    font-size: 1.8rem;
+}
