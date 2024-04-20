@@ -10,8 +10,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.2.3"
-  }
+  "license": "ISC"
 }
