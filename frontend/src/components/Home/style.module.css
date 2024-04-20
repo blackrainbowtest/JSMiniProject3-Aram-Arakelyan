@@ -10,15 +10,15 @@ section {
     color: white;
 }
 
-#ChooseSection {
+.ChooseSection {
     height: calc(100vh -6rem);
     background-color: lightcoral;
 }
 
-#MapSection {
+.MapSection {
     background-color: lightseagreen;
 }
 
-#AboutSection {
+.AboutSection {
     background-color: lightblue;
 }

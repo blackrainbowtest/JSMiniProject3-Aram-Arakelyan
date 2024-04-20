@@ -1,5 +1,5 @@
 a:hover,
-a:active {
+a.active {
     color: yellow;
 }
 
@@ -15,8 +15,13 @@ nav {
     left: 0;
     width: 100%;
     padding: 1.5rem 0;
-    background-color: #fff;
+    background-color: #ffffff55;
     box-shadow: black;
+    transition: padding .3s ease-in-out;
+}
+
+nav.scrolled {
+    padding: 2rem 0;
 }
 
 nav .container .row {
