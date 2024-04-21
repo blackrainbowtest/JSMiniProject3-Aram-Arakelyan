@@ -11,14 +11,15 @@ a.active {
 
 nav {
     position: fixed;
-    top: -150px;
+    top: -100px;
     left: 0;
     width: 100%;
     padding: 1.5rem 0;
     background-color: #ffffff55;
     box-shadow: black;
-    transition: padding .3s ease-in-out, opacity .5s ease-in-out, top .5s ease-in-out;
+    transition: padding .3s ease-in-out, opacity .5s ease-in-out, top .5s ease-out;
     opacity: 1;
+    z-index: 999;
 }
 
 nav.scrolled {

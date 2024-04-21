@@ -1,12 +1,23 @@
 import { Link, Outlet } from "react-router-dom";
-import { selections } from "./selections";
-import styles from "./style.module.css";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import styles from "./style.module.css";
 
 export default function Layout() {
+
+  const { t } = useTranslation();
+
+  const selections = [
+    { link: "/", title: "Main", text: t('Main') },
+    { link: "/", title: "Choose", text: t('Choose') },
+    { link: "/", title: "Map", text: t('Map') },
+    { link: "/", title: "About", text: t('About_us') },
+  ]
   // State to track the active link and scroll state
   const [activeLink, setActiveLink] = useState(selections[0]?.title);
   const [isScrolled, setIsScrolled] = useState(false);
+
   const currentSectionRef = useRef(0);
   const lastScrollTimeRef = useRef(0);
 
@@ -39,6 +50,7 @@ export default function Layout() {
       }
     }
   };
+
 
   useEffect(() => {
     // Return scroll to 0
@@ -106,7 +118,7 @@ export default function Layout() {
                       to={item?.link}
                       className={activeLink === item.title ? styles.active : ""}
                     >
-                      {item?.title}
+                      {item?.text}
                     </Link>
                   </li>
                 );
