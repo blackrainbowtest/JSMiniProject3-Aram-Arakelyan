@@ -44,7 +44,10 @@ export default function Layout() {
     // Return scroll to 0
     window.scrollTo({ top: 0, behavior: "smooth" });
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      const paralaxContainerY = document
+        .getElementById("Main")
+        .getBoundingClientRect().top;
+      if (Math.abs(paralaxContainerY) >= window.innerHeight) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -62,7 +65,6 @@ export default function Layout() {
       lastScrollTimeRef.current = now;
 
       if (event.deltaY > 0) {
-        console.log(currentSectionRef.current, selections.length - 1);
         // Scroll down
         if (currentSectionRef.current < selections.length - 1) {
           scrollToSection(selections[currentSectionRef.current + 1].title);
@@ -72,7 +74,6 @@ export default function Layout() {
         if (currentSectionRef.current > 0) {
           scrollToSection(selections[currentSectionRef.current - 1].title);
         }
-        console.log("Прокрутка вверх");
       }
     };
 

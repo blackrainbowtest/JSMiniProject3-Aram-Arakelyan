@@ -1,19 +1,18 @@
-import { useEffect } from 'react';
-import { AboutSectionComponent } from './_components/AboutSectionComponent';
-import { ChooseSectionComponent } from './_components/ChooseSectionComponent';
-import { MapSectionComponent } from './_components/MapSectionComponent';
+import { useEffect } from "react";
+import { AboutSectionComponent } from "./_components/AboutSectionComponent";
+import { ChooseSectionComponent } from "./_components/ChooseSectionComponent";
+import { MapSectionComponent } from "./_components/MapSectionComponent";
+import { ParalaxSectionComponent } from "./_components/ParalaxSectionComponent";
 
 export default function Home() {
+  useEffect(() => {}, []);
 
-    useEffect(() => {
-
-    }, []);
-      
-    return (
-        <>
-            <ChooseSectionComponent />
-            <MapSectionComponent />
-            <AboutSectionComponent />
-        </>
-    )
+  return (
+    <>
+      <ParalaxSectionComponent />
+      <ChooseSectionComponent />
+      <MapSectionComponent />
+      <AboutSectionComponent />
+    </>
+  );
 }
