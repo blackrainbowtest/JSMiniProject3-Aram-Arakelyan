@@ -1,0 +1,44 @@
+.root {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: black;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid rgb(34, 34, 34);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.input:focus {
+    border-color: blue;
+    outline: none;
+}
+
+.suggestions {
+    position: absolute;
+    top: 0;
+    transform: translateY(39px);
+    background: #FFF;
+    border: 2px solid rgb(34, 34, 34);
+    width: 100%;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.listItem {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.listItem:hover {
+    background: #efefef;
+}

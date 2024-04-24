@@ -70,9 +70,11 @@ export default function Layout() {
 
     const handleWheelScroll = (event) => {
       const now = Date.now();
+      if (event.ctrlKey) {
+        return; // Check if Ctrl key is pressed (used for google maps)
+      }
       if (now - lastScrollTimeRef.current < 500) {
-        // Check that the handler is called no more than once every 500 milliseconds
-        return;
+        return; // Check that the handler is called no more than once every 500 milliseconds
       }
       lastScrollTimeRef.current = now;
 
@@ -97,6 +99,7 @@ export default function Layout() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("wheel", handleWheelScroll);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

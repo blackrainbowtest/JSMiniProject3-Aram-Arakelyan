@@ -8,6 +8,7 @@ section {
     align-items: center;
     justify-content: center;
     color: white;
+    height: 100vh;
 }
 
 .ChooseSection {
@@ -17,6 +18,11 @@ section {
 
 .MapSection {
     background-color: lightseagreen;
+    padding-top: 7.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .AboutSection {
