@@ -1,0 +1,85 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 -15px;
+    width: 100%;
+}
+
+.row > * {
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logoFooter {
+    font-size: 1rem;
+}
+
+.colM {
+    width: 25%;
+    float: left;
+}
+/* Установка ширины блока */
+.colM {
+    width: 25%; /* Это 3/12 или 1/4 */
+    float: left; /* Размещение элементов в ряд */
+}
+
+/* Добавление отступов между блоками */
+.colM + .colM {
+    margin-left: 2%; /* Например, 2% для создания пространства между блоками */
+}
+
+.colM9 .colM9 {
+    width: 75%;
+    float: left;
+}
+
+.colM9+.colM9 {
+    margin-left: 2%;
+}
+
+.newslatterForm {
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.subsBtn {
+    max-width: 289px;
+    display: inline-block;
+    background: #151515;
+    height: 66px;
+    width: 100%;
+    color: #fff;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: ease-in all 0.5s;
+}
+
+.subsBtn:hover {
+    background: #fff;
+    color: #151515;
+    transition: ease-in all 0.5s;
+}
+
+.ente {
+    color: #000;
+    border: inherit;
+    padding: 0 30px;
+    height: 66px;
+    width: 100%;
+    font-size: 17px;
+}

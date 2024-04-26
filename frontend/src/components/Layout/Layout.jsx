@@ -2,24 +2,28 @@ import { Link, Outlet } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import styles from "./style.module.css";
+import s from "./Layout.module.css";
+import { useSelector } from "react-redux";
 
-export default function Layout() {
-
+export const Layout = () => {
   const { t } = useTranslation();
 
   const selections = [
-    { link: "/", title: "Main", text: t('Main') },
-    { link: "/", title: "Choose", text: t('Choose') },
-    { link: "/", title: "Map", text: t('Map') },
-    { link: "/", title: "About", text: t('About_us') },
-  ]
-  // State to track the active link and scroll state
-  const [activeLink, setActiveLink] = useState(selections[0]?.title);
-  const [isScrolled, setIsScrolled] = useState(false);
+    { link: "/", title: "Main", text: t("Main") },
+    { link: "/", title: "Choose", text: t("Choose") },
+    { link: "/", title: "Map", text: t("Map") },
+    { link: "/", title: "About", text: t("About_us") },
+  ];
 
   const currentSectionRef = useRef(0);
   const lastScrollTimeRef = useRef(0);
+  const isUnlock = useSelector((state) => state?.main?.isUnlock);
+
+  // State to track the active link and scroll state
+  const [activeLink, setActiveLink] = useState(selections[0]?.title);
+  const [isScrolled, setIsScrolled] = useState(
+    window.scrollY === 0 ? false : true
+  );
 
   // Function to smoothly scroll a section by its ID
   const scrollToSection = (sectionId) => {
@@ -51,10 +55,14 @@ export default function Layout() {
     }
   };
 
-
   useEffect(() => {
     // Return scroll to 0
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.scrollY >= window.innerHeight * 2) {
+      currentSectionRef.current = 3;
+    } else if (window.scrollY >= window.innerHeight * 2) {
+      currentSectionRef.current = 4;
+    }
     const handleScroll = () => {
       const paralaxContainerY = document
         .getElementById("Main")
@@ -67,8 +75,10 @@ export default function Layout() {
       // Calling the function to determine the active section while scrolling
       determineActiveSection();
     };
-
     const handleWheelScroll = (event) => {
+      if (!isUnlock) {
+        return; // Check if App is bussy cansle whell scrolling
+      }
       const now = Date.now();
       if (event.ctrlKey) {
         return; // Check if Ctrl key is pressed (used for google maps)
@@ -99,38 +109,40 @@ export default function Layout() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("wheel", handleWheelScroll);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isUnlock]);
 
   return (
     <>
-      <nav className={isScrolled ? styles.scrolled : ""}>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            <div className={styles.logo}>Logo</div>
-            <ul className={styles.menu_bar}>
-              {selections.map((item, i) => {
-                return (
-                  <li
-                    key={i}
-                    onClick={(e) => {
-                      scrollToSection(item.title);
-                    }}
-                  >
-                    <Link
-                      to={item?.link}
-                      className={activeLink === item.title ? styles.active : ""}
+      <header className={`${s.header} ${isScrolled ? s.scrolled : ""}`}>
+        <nav className={s.containerFluid}>
+          <div className={s.container}>
+            <div className={s.row}>
+              <div className={s.logo}>Logo</div>
+              <ul className={s.menu_bar}>
+                {selections.map((item, i) => {
+                  return (
+                    <li
+                      key={i}
+                      onClick={(e) => {
+                        scrollToSection(item.title);
+                      }}
                     >
-                      {item?.text}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+                      <Link
+                        to={item?.link}
+                        className={activeLink === item.title ? s.active : ""}
+                      >
+                        {item?.text}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
       <Outlet />
     </>
   );
-}
+};

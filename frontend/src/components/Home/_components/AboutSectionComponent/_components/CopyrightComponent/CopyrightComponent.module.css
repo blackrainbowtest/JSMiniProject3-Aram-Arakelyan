@@ -1,0 +1,42 @@
+.copyright {
+    background: #151515;
+     margin-top: 10px;
+     padding: 20px 0px;
+     width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box; 
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.row > * {
+    flex: 0 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.colMd6 {
+    width: 50%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colMd6 + .colMd6 {
+    margin-left: 0;
+}
+
+.reserved {
+    font-size: 2rem;
+}

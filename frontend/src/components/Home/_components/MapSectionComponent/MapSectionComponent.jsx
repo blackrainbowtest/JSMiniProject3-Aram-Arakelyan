@@ -1,11 +1,16 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
+import { useDispatch } from "react-redux";
 
 import { Autocomplete } from "./_components/Autocomplete";
 import { Map, MODES } from "./_components/Map/";
+import { Popap } from "../../../_common/Popap";
+import { Loader } from "../../../_common/Loader";
 
 import s from "../../Home.module.css";
 import sLocal from "./MapSectionComponent.module.css";
+import { getBrowserLocation } from "../../../../utils/geo";
+import { setUnlock } from "../../../../features/Main/MainSlice";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -19,12 +24,15 @@ const libraries = ["places"];
 const MapSectionComponent = () => {
   const [center, setCenter] = useState(defaultCenter);
   const [mode, setMode] = useState(MODES.MOVE);
+  const [isPopap, setIsPopap] = useState(false);
   const [markers, setMarkers] = useState([]);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: API_KEY,
     libraries,
   });
+
+  const dispatch = useDispatch();
 
   // the function is not recreated again and does not call the render trigger
   const onPlaceSelect = useCallback((coordinates) => {
@@ -46,43 +54,63 @@ const MapSectionComponent = () => {
 
   const onMarkerAdd = useCallback(
     (coordinates) => {
-      setMarkers([...markers, coordinates]);
+      setIsPopap(coordinates);
+      dispatch(setUnlock(false));
+      console.log(555);
+      // setMarkers([...markers, coordinates]);
     },
-    [markers]
+    [dispatch]
   );
 
-  const clear = useCallback(
-    () => {
-      setMarkers([])
-    }, []
-  );
+  const clear = useCallback(() => {
+    setMarkers([]);
+  }, []);
+
+  useEffect(() => {
+    getBrowserLocation()
+      .then((defaultLocation) => {
+        setCenter(defaultLocation);
+      })
+      .catch((defaultLocation) => {
+        setCenter(defaultLocation);
+      });
+  }, []);
+
+  const closePopap = (e) => {
+    setIsPopap(false);
+    dispatch(setUnlock(true));
+    console.log(55);
+  };
 
   return (
-    <section id='Map' className={s.MapSection}>
-      <div className={sLocal.AutocompleteContainer}>
+    <>
+      <section id='Map' className={s.MapSection}>
+        <div className={sLocal.AutocompleteContainer}>
+          {isLoaded ? (
+            <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
+          ) : (
+            ""
+          )}
+          <button className={sLocal.modeToggle} onClick={toggleMode}>
+            Set markers
+          </button>
+          <button className={sLocal.modeToggle} onClick={clear}>
+            Clear
+          </button>
+        </div>
         {isLoaded ? (
-          <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
+          <Map
+            center={center}
+            mode={mode}
+            markers={markers}
+            onMarkerAdd={onMarkerAdd}
+          />
         ) : (
-          ""
+          <Loader />
         )}
-        <button className={sLocal.modeToggle} onClick={toggleMode}>
-          Set markers
-        </button>
-        <button className={sLocal.modeToggle} onClick={clear}>
-          Clear
-        </button>
-      </div>
-      {isLoaded ? (
-        <Map
-          center={center}
-          mode={mode}
-          markers={markers}
-          onMarkerAdd={onMarkerAdd}
-        />
-      ) : (
-        <h2>Loading...</h2>
-      )}
-    </section>
+        {isPopap ? <Popap children={"sss"} handleChange={closePopap} /> : ""}
+      </section>
+    </>
   );
 };
 

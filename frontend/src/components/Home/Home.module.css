@@ -26,7 +26,13 @@ section {
 }
 
 .AboutSection {
-    background-color: lightblue;
+    background-color: #222222;
+    padding: 0;
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
 }
 
 .MainSection {

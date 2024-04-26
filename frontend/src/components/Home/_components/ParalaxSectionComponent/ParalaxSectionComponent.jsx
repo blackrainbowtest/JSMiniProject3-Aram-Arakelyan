@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
+import { Loader } from "../../../_common/Loader";
 import { setLoad } from "../../../../features/Main/MainSlice";
 import paralaxImg50 from "../../../../images/paralax/50.png";
 import paralaxImg49 from "../../../../images/paralax/49.png";
@@ -87,7 +88,7 @@ const ParalaxSectionComponent = () => {
   return (
     <section id='Main' className={s.MainSection}>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <>
           <img

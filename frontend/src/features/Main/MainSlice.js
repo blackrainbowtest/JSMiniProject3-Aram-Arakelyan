@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     data: [],
     errorMessage: "",
-    loading: true
+    loading: true,
+    isUnlock: true,
 }
 
 export const mainSlice = createSlice({
@@ -15,6 +16,9 @@ export const mainSlice = createSlice({
         },
         setLoad: (state, action) => {
             state.loading = action.payload
+        },
+        setUnlock: (state, action) => {
+            state.isUnlock = action.payload
         }
     }
 })
@@ -22,4 +26,4 @@ export const mainSlice = createSlice({
 // export slice to app/store
 export default mainSlice.reducer
 
-export const { setError, setLoad } = mainSlice.actions
+export const { setError, setLoad, setUnlock } = mainSlice.actions

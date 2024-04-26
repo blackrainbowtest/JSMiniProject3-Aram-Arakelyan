@@ -36,12 +36,9 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
       // by setting the second parameter to "false"
       setValue(description, false);
       clearSuggestions();
-      console.log(description);
-
       // Get latitude and longitude via utility functions
       getGeocode({ address: description }).then((results) => {
         const { lat, lng } = getLatLng(results[0]);
-        console.log("📍 Coordinates: ", { lat, lng });
         onSelect({ lat, lng });
       });
     };
@@ -78,7 +75,7 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         value={value}
         onChange={handleInput}
         disabled={!ready}
-        placeholder='Where are you going?'
+        placeholder='Where did you take the photos?'
       />
       {status === "OK" && (
         <ul className={s.suggestions}>{renderSuggestions()}</ul>

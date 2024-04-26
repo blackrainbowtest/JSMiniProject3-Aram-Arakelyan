@@ -48,7 +48,6 @@ const Map = ({ center, mode, markers, onMarkerAdd }) => {
       if (mode === MODES.SET_MARKER) {
         const lat = loc.latLng.lat();
         const lng = loc.latLng.lng();
-        console.log({ lat, lng });
         onMarkerAdd({ lat, lng });
       }
     },
