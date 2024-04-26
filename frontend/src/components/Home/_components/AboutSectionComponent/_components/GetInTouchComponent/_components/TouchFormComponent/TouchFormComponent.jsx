@@ -2,7 +2,7 @@ import s from "./TouchFormComponent.module.css";
 
 export const TouchFormComponent = () => {
   return (
-    <form className={s.mainForm}>
+    <div className={s.mainForm}>
       <div className={s.row}>
         <div className={s.colMd12}>
           <input
@@ -40,6 +40,6 @@ export const TouchFormComponent = () => {
           <button className={s.sendBtn}>Send Now</button>
         </div>
       </div>
-    </form>
+    </div>
   );
 };

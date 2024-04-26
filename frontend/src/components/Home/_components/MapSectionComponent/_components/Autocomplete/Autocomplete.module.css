@@ -8,11 +8,15 @@
 }
 
 .input {
+    border: #d2d2d3 solid 1px;
+    padding: 0 10px;
+    margin-bottom: 10px;
     width: 100%;
-    padding: 10px 15px;
-    border: 2px solid rgb(34, 34, 34);
-    font-size: 1rem;
-    font-weight: 700;
+    height: 50px;
+    background: #fff;
+    color: #888888;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 .input:focus {

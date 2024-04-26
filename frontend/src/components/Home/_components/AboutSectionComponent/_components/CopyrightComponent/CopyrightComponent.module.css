@@ -15,6 +15,9 @@
 
 .row {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     flex-wrap: wrap;
     margin: 0 -15px;
 }
@@ -25,18 +28,6 @@
     box-sizing: border-box;
 }
 
-.colMd6 {
-    width: 50%;
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.colMd6 + .colMd6 {
-    margin-left: 0;
-}
-
 .reserved {
-    font-size: 2rem;
+    font-size: 1.1rem;
 }

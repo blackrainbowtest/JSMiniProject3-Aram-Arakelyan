@@ -58,10 +58,14 @@ export const Layout = () => {
   useEffect(() => {
     // Return scroll to 0
     // window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.scrollY >= window.innerHeight) {
+      currentSectionRef.current = 1;
+    }
     if (window.scrollY >= window.innerHeight * 2) {
+      currentSectionRef.current = 2;
+    } 
+    if (window.scrollY >= window.innerHeight * 3) {
       currentSectionRef.current = 3;
-    } else if (window.scrollY >= window.innerHeight * 2) {
-      currentSectionRef.current = 4;
     }
     const handleScroll = () => {
       const paralaxContainerY = document
