@@ -26,3 +26,14 @@
     color: #fff;
     opacity: 1;
 }
+
+.selected {
+    background: orange;
+}
+
+.selected:hover,
+.selected:focus {
+    background: orange;
+    color: #fff;
+    opacity: 1;
+}

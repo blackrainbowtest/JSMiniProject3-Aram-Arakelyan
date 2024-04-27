@@ -19,11 +19,14 @@ export const mainSlice = createSlice({
         },
         setUnlock: (state, action) => {
             state.isUnlock = action.payload
-        }
+        },
+        setCallback: (state, action) => {
+            state.callback = action.payload;
+        },
     }
 })
 
 // export slice to app/store
 export default mainSlice.reducer
 
-export const { setError, setLoad, setUnlock } = mainSlice.actions
+export const { setError, setLoad, setUnlock, setCallback } = mainSlice.actions

@@ -4,6 +4,11 @@ export const en = {
         Choose: 'Choose',
         Map: 'Map',
         About_us: 'About us',
+        SetMarker: 'Set marker',
+        CancelSetting: 'Cancel setting',
+        imageAddTitle: 'Add your image',
+
+
         ProductName: "Armenian Hills",
         cart: "My cart",
         emptyCart: "No product bought yet.",
