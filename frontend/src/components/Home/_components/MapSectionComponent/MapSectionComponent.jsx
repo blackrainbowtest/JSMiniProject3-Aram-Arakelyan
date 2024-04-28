@@ -13,6 +13,7 @@ import sLocal from "./MapSectionComponent.module.css";
 import { getBrowserLocation } from "../../../../utils/geo";
 import { setUnlock } from "../../../../features/Main/MainSlice";
 import { ImageUploadPopup } from "./_components/ImageUploadPopup";
+import { ImageDisplayPopup } from './_components/ImageDisplayPopup/ImageDisplayPopup';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -29,6 +30,7 @@ const MapSectionComponent = () => {
   const [center, setCenter] = useState(defaultCenter);
   const [mode, setMode] = useState(MODES.MOVE);
   const [isPopap, setIsPopap] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
   const [markers, setMarkers] = useState([]);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -60,8 +62,6 @@ const MapSectionComponent = () => {
     (coordinates) => {
       setIsPopap(coordinates);
       dispatch(setUnlock(false));
-      console.log("Open modal window");
-      // setMarkers([...markers, coordinates]);
     },
     [dispatch]
   );
@@ -82,18 +82,32 @@ const MapSectionComponent = () => {
 
   const closePopap = useCallback(
     (e) => {
-      console.log("Close modal window");
       setIsPopap(false);
+      setIsSelected(false)
       dispatch(setUnlock(true));
     },
     [dispatch]
   );
 
-  const handleSubmit = useCallback((e) => {
-    console.log('Submit modal window and data')
-    setIsPopap(false);
-    dispatch(setUnlock(true));
-  }, [dispatch]);
+  // Send data to server
+  const handleSubmit = useCallback(
+    (text, images) => {
+      setMarkers((prev) => [...prev, { ...isPopap, text, images }]);
+      setIsPopap(false);
+      dispatch(setUnlock(true));
+      setMode(MODES.MOVE)
+    },
+    [dispatch, isPopap]
+  );
+
+  const onMarkerClick = useCallback(
+    (e, position) => {
+      if (mode === MODES.MOVE) {
+        setIsSelected(position)
+      }
+    },
+    [mode]
+  )
 
   return (
     <>
@@ -122,6 +136,7 @@ const MapSectionComponent = () => {
             mode={mode}
             markers={markers}
             onMarkerAdd={onMarkerAdd}
+            onMarkerClick={onMarkerClick}
           />
         ) : (
           <Loader />
@@ -133,9 +148,12 @@ const MapSectionComponent = () => {
               handleSubmit={handleSubmit}
             />
           </Popap>
-        ) : (
-          ""
-        )}
+        ) : ("")}
+        {isSelected ? (
+          <Popap handleChange={closePopap}>
+            <ImageDisplayPopup props={isSelected} />
+          </Popap>
+        ) : ("")}
       </section>
     </>
   );

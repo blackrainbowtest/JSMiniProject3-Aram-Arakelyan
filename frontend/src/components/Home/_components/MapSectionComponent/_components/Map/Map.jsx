@@ -30,7 +30,7 @@ export const MODES = {
   SET_MARKER: 1,
 };
 
-const Map = ({ center, mode, markers, onMarkerAdd }) => {
+const Map = ({ center, mode, markers, onMarkerAdd, onMarkerClick }) => {
   const mapRef = React.useRef(undefined);
 
   const onLoad = React.useCallback(function callback(map) {
@@ -67,7 +67,7 @@ const Map = ({ center, mode, markers, onMarkerAdd }) => {
       >
         <CurrentLocationMarker position={center} />
         {markers.map((pos, i) => {
-          return <Marker position={pos} key={i} />;
+          return <Marker position={pos} key={i} onClick={onMarkerClick} />;
         })}
       </GoogleMap>
     </div>

@@ -4,6 +4,7 @@
     background-color: #fff;
     color: black;
     border-radius: 5px;
+    padding: 20px;
 }
 
 .row {
@@ -13,6 +14,7 @@
     align-items: center;
     flex-wrap: wrap;
     height: inherit;
+    gap: 15px;
 }
 
 .row>* {
@@ -34,50 +36,4 @@
     font-weight: bold;
     line-height: 50px;
     color: #323232;
-}
-
-.bodyPopup {
-    padding: 15px;
-    border: 1px solid red;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-.actionPopup {
-    padding: 15px;
-    border: 1px solid blue;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.actionPopup .actionBtn {
-    font-size: 17px;
-    transition: ease-in all 0.5s;
-    background-color: #323232;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 25px 0px;
-    max-width: 252px;
-    width: 100%;
-    display: block;
-    margin-top: 10px !important;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.actionPopup .actionSave:hover {
-    background-color: #224527c7;
-    transition: ease-in all 0.5s;
-    color: #fff;
-}
-
-.actionPopup .actionCancel:hover {
-    background-color: #3e0f0fc7;
-    transition: ease-in all 0.5s;
-    color: #fff;
 }

@@ -1,0 +1,80 @@
+.container {
+    min-width: 700px;
+    min-height: 350px;
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: inherit;
+    gap: 15px;
+}
+
+.row>* {
+    flex: 0 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.titlePopup {
+    display: flex;
+    padding: 5px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.titlePopup h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+    color: #323232;
+}
+
+.imageComponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.imageComponent img {
+    max-height: 600px;
+    max-width: 600px;
+}
+
+.buttonComponent {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.buttonComponent button {
+    font-size: 17px;
+    transition: ease-in all 0.5s;
+    background-color: #323232;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 15px 10px;
+    max-width: 252px;
+    width: 100%;
+    display: block;
+    margin-top: 10px !important;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.buttonComponent button:hover {
+    background-color: #464646c7;
+    transition: ease-in all 0.5s;
+    color: #fff;
+}

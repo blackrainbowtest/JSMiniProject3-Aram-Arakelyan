@@ -7,12 +7,14 @@ export const en = {
         SetMarker: 'Set marker',
         CancelSetting: 'Cancel setting',
         imageAddTitle: 'Add your image',
+        textPopup: 'Enter image description',
+        save: 'Save',
+        cancel: 'Cancel',
 
 
         ProductName: "Armenian Hills",
         cart: "My cart",
         emptyCart: "No product bought yet.",
-        save: "Save",
         productName: "Product name",
         productPrice: "Product price",
         errorName: "Incorrect entry.",
