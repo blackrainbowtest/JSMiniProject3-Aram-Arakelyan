@@ -1,13 +1,15 @@
+import { useTranslation } from "react-i18next";
 import s from "./TouchFormComponent.module.css";
 
 export const TouchFormComponent = () => {
+  const { t } = useTranslation();
   return (
     <div className={s.mainForm}>
       <div className={s.row}>
         <div className={s.colMd12}>
           <input
             className={s.contactus}
-            placeholder='Name'
+            placeholder={t('Name')}
             type='type'
             name=' Name'
           />
@@ -15,7 +17,7 @@ export const TouchFormComponent = () => {
         <div className={s.colMd12}>
           <input
             className={s.contactus}
-            placeholder='Phone Number'
+            placeholder={t('PhoneNumber')}
             type='type'
             name='Phone Number'
           />
@@ -23,7 +25,7 @@ export const TouchFormComponent = () => {
         <div className={s.colMd12}>
           <input
             className={s.contactus}
-            placeholder='Email'
+            placeholder={t('Email')}
             type='type'
             name='Email'
           />{" "}
@@ -31,13 +33,13 @@ export const TouchFormComponent = () => {
         <div className={s.colMd12}>
           <textarea
             className={s.textarea}
-            placeholder='Message'
+            placeholder={t('Message')}
             type='type'
             message='Name'
           ></textarea>
         </div>
         <div className={s.colMd12}>
-          <button className={s.sendBtn}>Send Now</button>
+          <button className={s.sendBtn} onClick={(e) => alert('Soon')}>{t('SendNow')}</button>
         </div>
       </div>
     </div>

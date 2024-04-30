@@ -1,18 +1,20 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import s from "./ImageDisplayPopup.module.css";
 
 export const ImageDisplayPopup = ({ props }) => {
+  const { t } = useTranslation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === props.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === props?.images?.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const previousImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? props.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? props?.images?.length - 1 : prevIndex - 1
     );
   };
 
@@ -27,16 +29,15 @@ export const ImageDisplayPopup = ({ props }) => {
         <div className={s.titlePopup}>
           <h2>{props?.text}</h2>
         </div>
-        {props.images.length > 0 && (
+        {props?.images?.length > 0 && (
           <div className={s.imageComponent}>
-            <img
-              src={URL.createObjectURL(props.images[currentImageIndex])}
-              alt=''
-            />
-            <div className={s.buttonComponent}>
-              <button onClick={previousImage}>Previous</button>
-              <button onClick={nextImage}>Next</button>
-            </div>
+            <img src={props.images[currentImageIndex]} alt='' />
+            {props?.images?.length > 1 && (
+              <div className={s.buttonComponent}>
+                <button onClick={previousImage}>{t("Previous")}</button>
+                <button onClick={nextImage}>{t("Next")}</button>
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -13,7 +13,9 @@ import sLocal from "./MapSectionComponent.module.css";
 import { getBrowserLocation } from "../../../../utils/geo";
 import { setUnlock } from "../../../../features/Main/MainSlice";
 import { ImageUploadPopup } from "./_components/ImageUploadPopup";
-import { ImageDisplayPopup } from './_components/ImageDisplayPopup/ImageDisplayPopup';
+import { ImageDisplayPopup } from "./_components/ImageDisplayPopup/ImageDisplayPopup";
+import { getImages, postImages } from "../../../../features/Image/ImageAPI";
+import { setError } from "../../../../features/Image/ImageSlice";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -31,7 +33,12 @@ const MapSectionComponent = () => {
   const [mode, setMode] = useState(MODES.MOVE);
   const [isPopap, setIsPopap] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
-  const [markers, setMarkers] = useState([]);
+  const [markers, setMarkers] = useState([
+    {
+      lat: 40.577,
+      lng: 44.503,
+    },
+  ]);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: API_KEY,
@@ -39,6 +46,7 @@ const MapSectionComponent = () => {
   });
 
   const dispatch = useDispatch();
+  // const markers1 = useSelector((state) => state?.image?.data)
 
   // the function is not recreated again and does not call the render trigger
   const onPlaceSelect = useCallback((coordinates) => {
@@ -71,6 +79,13 @@ const MapSectionComponent = () => {
   }, []);
 
   useEffect(() => {
+    dispatch(getImages())
+      .then((markerData) => {
+        setMarkers(markerData.payload);
+      })
+      .catch((error) => {
+        dispatch(setError({ message: error }));
+      });
     getBrowserLocation()
       .then((defaultLocation) => {
         setCenter(defaultLocation);
@@ -78,12 +93,12 @@ const MapSectionComponent = () => {
       .catch((defaultLocation) => {
         setCenter(defaultLocation);
       });
-  }, []);
+  }, [dispatch]);
 
   const closePopap = useCallback(
     (e) => {
       setIsPopap(false);
-      setIsSelected(false)
+      setIsSelected(false);
       dispatch(setUnlock(true));
     },
     [dispatch]
@@ -92,10 +107,17 @@ const MapSectionComponent = () => {
   // Send data to server
   const handleSubmit = useCallback(
     (text, images) => {
-      setMarkers((prev) => [...prev, { ...isPopap, text, images }]);
-      setIsPopap(false);
-      dispatch(setUnlock(true));
-      setMode(MODES.MOVE)
+      dispatch(postImages({ ...isPopap, text, images }))
+        .then((res) => {
+          console.log(res);
+          setMarkers((prev) => [...prev, res.payload]);
+          setIsPopap(false);
+          dispatch(setUnlock(true));
+          setMode(MODES.MOVE);
+        })
+        .catch((error) => {
+          dispatch(setError({ message: error }));
+        });
     },
     [dispatch, isPopap]
   );
@@ -103,11 +125,11 @@ const MapSectionComponent = () => {
   const onMarkerClick = useCallback(
     (e, position) => {
       if (mode === MODES.MOVE) {
-        setIsSelected(position)
+        setIsSelected(position);
       }
     },
     [mode]
-  )
+  );
 
   return (
     <>
@@ -127,7 +149,7 @@ const MapSectionComponent = () => {
             {mode === MODES.MOVE ? t("SetMarker") : t("CancelSetting")}
           </button>
           <button className={sLocal.modeToggle} onClick={clear}>
-            Clear
+            {t("clear")}
           </button>
         </div>
         {isLoaded ? (
@@ -148,12 +170,16 @@ const MapSectionComponent = () => {
               handleSubmit={handleSubmit}
             />
           </Popap>
-        ) : ("")}
+        ) : (
+          ""
+        )}
         {isSelected ? (
           <Popap handleChange={closePopap}>
             <ImageDisplayPopup props={isSelected} />
           </Popap>
-        ) : ("")}
+        ) : (
+          ""
+        )}
       </section>
     </>
   );

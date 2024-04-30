@@ -10,6 +10,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { en } from './locale/en';
 import { am } from './locale/am';
+import { ru } from './locale/ru';
+import { fr } from './locale/fr';
 
 import './index.css';
 
@@ -22,6 +24,8 @@ i18next
     resources: {
       en: en,
       am: am,
+      ru: ru,
+      fr: fr,
     },
     lng: localStorage.getItem('language') || 'am',
     interpolation: {

@@ -4,13 +4,13 @@ import { useTranslation } from "react-i18next";
 
 import s from "./Layout.module.css";
 import { useSelector } from "react-redux";
+import { LanguageComponent } from "./_components/LanguageComponent";
 
 export const Layout = () => {
   const { t } = useTranslation();
 
   const selections = [
     { link: "/", title: "Main", text: t("Main") },
-    { link: "/", title: "Choose", text: t("Choose") },
     { link: "/", title: "Map", text: t("Map") },
     { link: "/", title: "About", text: t("About_us") },
   ];
@@ -56,16 +56,13 @@ export const Layout = () => {
   };
 
   useEffect(() => {
-    // Return scroll to 0
-    // window.scrollTo({ top: 0, behavior: "smooth" });
     if (window.scrollY >= window.innerHeight) {
       currentSectionRef.current = 1;
+      setActiveLink(selections[currentSectionRef.current].title);
     }
     if (window.scrollY >= window.innerHeight * 2) {
       currentSectionRef.current = 2;
-    } 
-    if (window.scrollY >= window.innerHeight * 3) {
-      currentSectionRef.current = 3;
+      setActiveLink(selections[currentSectionRef.current].title);
     }
     const handleScroll = () => {
       const paralaxContainerY = document
@@ -116,13 +113,21 @@ export const Layout = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isUnlock]);
 
+  const logoClickHandle = (e) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    currentSectionRef.current = 0;
+  };
+
   return (
     <>
       <header className={`${s.header} ${isScrolled ? s.scrolled : ""}`}>
         <nav className={s.containerFluid}>
           <div className={s.container}>
             <div className={s.row}>
-              <div className={s.logo}>Logo</div>
+              <div className={s.logo} onClick={logoClickHandle}>
+                <img src='/logo.png' alt='' />
+                {t("logo")}
+              </div>
               <ul className={s.menu_bar}>
                 {selections.map((item, i) => {
                   return (
@@ -141,6 +146,7 @@ export const Layout = () => {
                     </li>
                   );
                 })}
+                <LanguageComponent />
               </ul>
             </div>
           </div>

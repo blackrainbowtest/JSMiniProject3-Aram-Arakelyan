@@ -6,6 +6,7 @@
 
 .titlepage {
     width: 100%;
+    display: flex;
 }
 
 .container {
@@ -48,6 +49,9 @@
 
 .textAlignLeft h2 {
     color: #2e2f34;
-    font-size: 2.5rem;
     text-align: left;
+    font-size: calc(1.1rem + 1vw);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

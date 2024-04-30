@@ -10,7 +10,7 @@ export const SubscribeComponent = () => {
     <div className={s.container}>
       <div className={s.row}>
         <div className={s.colM}>
-          <Link className='logoFooter' to={"/"}>
+          <Link className={s.logoFooter} to={"/"}>
             {t("Logo")}
           </Link>
         </div>
@@ -18,11 +18,11 @@ export const SubscribeComponent = () => {
           <form className={s.newslatterForm}>
             <input
               className={s.ente}
-              placeholder='Enter your email'
+              placeholder={t('enterEmail')}
               type='text'
               name='Enter your email'
             />
-            <button className={s.subsBtn}>Sbscribe Now</button>
+            <button className={s.subsBtn}>{t('subscribeNow')}</button>
           </form>
         </div>
       </div>

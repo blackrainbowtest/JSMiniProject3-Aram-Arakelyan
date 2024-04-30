@@ -145,7 +145,7 @@ const ParalaxSectionComponent = () => {
               zIndex: 50,
             }}
           />
-          <h2>{t("ProductName")}</h2>
+          <h2>{t("productName")}</h2>
         </>
       )}
     </section>

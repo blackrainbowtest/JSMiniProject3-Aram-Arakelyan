@@ -7,5 +7,7 @@
     "client": "cd frontend && npm start",
     "build": "cd frontend && npm i && cd .. && cd backend && npm i"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+  }
 }

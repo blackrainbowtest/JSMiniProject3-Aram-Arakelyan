@@ -6,7 +6,7 @@ import { CarouselItem } from './_components/CarouselItem';
 
 export const CarouselComponent = () => {
   const buttonClickHandle = useCallback((e, symbol) => {
-    console.log(symbol);
+    console.log(`Button ${symbol} pressed`);
   }, []);
   return (
     <div className={s.carousel}>

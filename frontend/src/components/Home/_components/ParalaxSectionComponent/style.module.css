@@ -6,8 +6,9 @@ section {
 section h2 {
     position: relative;
     color: #fff;
-    font-size: 12rem;
+    font-size: calc(10vw);
     z-index: 999;
+    
 }
 
 section .layer {

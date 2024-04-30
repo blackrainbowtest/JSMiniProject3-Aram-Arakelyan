@@ -1,10 +1,8 @@
-import s from './CarouselItem.module.css'
+import { useTranslation } from "react-i18next";
+import s from "./CarouselItem.module.css";
 
 export const CarouselItem = () => {
-    
-    return (
-        <div className={s.container}>
-            Clients comments here
-        </div>
-    )
-}
+  const { t } = useTranslation();
+
+  return <div className={s.container}>{t("commingSoon")}</div>;
+};

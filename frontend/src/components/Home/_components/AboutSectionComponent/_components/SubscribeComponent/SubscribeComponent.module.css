@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     height: 80px;
     margin: 0 auto;
     padding: 0 15px;
@@ -23,26 +23,28 @@
 }
 
 .logoFooter {
-    font-size: 1rem;
+    font-size: calc(1rem + 1vw);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+
 .colM {
-    width: 25%;
+    width: 45%;
     float: left;
 }
-/* Установка ширины блока */
 .colM {
-    width: 25%; /* Это 3/12 или 1/4 */
-    float: left; /* Размещение элементов в ряд */
+    width: 45%;
+    float: left;
 }
 
-/* Добавление отступов между блоками */
 .colM + .colM {
-    margin-left: 2%; /* Например, 2% для создания пространства между блоками */
+    margin-left: 2%;
 }
 
 .colM9 .colM9 {
-    width: 75%;
+    width: 55%;
     float: left;
 }
 

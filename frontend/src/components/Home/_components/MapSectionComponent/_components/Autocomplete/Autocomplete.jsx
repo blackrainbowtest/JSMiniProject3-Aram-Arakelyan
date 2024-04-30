@@ -6,8 +6,11 @@ import useOnclickOutside from "react-cool-onclickoutside";
 
 import s from "./Autocomplete.module.css";
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 export const Autocomplete = ({ isLoaded, onSelect }) => {
+  const { t } = useTranslation();
+
   const {
     ready,
     value,
@@ -75,7 +78,7 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         value={value}
         onChange={handleInput}
         disabled={!ready}
-        placeholder='Where did you take the photos?'
+        placeholder={t('autocompletePlaceholder')}
       />
       {status === "OK" && (
         <ul className={s.suggestions}>{renderSuggestions()}</ul>

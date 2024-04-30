@@ -1,6 +1,6 @@
 const defaultCenter = {
-    lat: 51.509865,
-    lng: -0.118092,
+    lat: 40.177,
+    lng: 44.503,
 };
 
 export const getBrowserLocation = () => {
