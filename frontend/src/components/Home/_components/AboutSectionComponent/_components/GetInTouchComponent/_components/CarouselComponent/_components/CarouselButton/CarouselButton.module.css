@@ -1,0 +1,32 @@
+div.carouselControlPrev,
+div.carouselControlNext {
+    background: #ffffff;
+    width: 67px;
+    height: 59px;
+    top: 105%;
+    opacity: 1;
+    font-size: 33px;
+    color: #000000;
+    box-shadow: 3px 0 36px rgba(30, 30, 30, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+div.carouselControlPrev {
+    left: 37%;
+}
+
+div.carouselControlNext {
+    right: 37%;
+}
+
+div.carouselControlNext:focus,
+div.carouselControlNext:hover,
+div.carouselControlPrev:focus,
+div.carouselControlPrev:hover {
+    background: #252525;
+    color: #fff;
+    opacity: 1;
+}

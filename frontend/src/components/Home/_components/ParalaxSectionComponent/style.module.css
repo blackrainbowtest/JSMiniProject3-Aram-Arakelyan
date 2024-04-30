@@ -1,0 +1,20 @@
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+section h2 {
+    position: relative;
+    color: #fff;
+    font-size: calc(10vw);
+    z-index: 999;
+    
+}
+
+section .layer {
+    position: absolute;
+    top: -5;
+    left: -5;
+    width: 110%;
+    height: 110%;
+}

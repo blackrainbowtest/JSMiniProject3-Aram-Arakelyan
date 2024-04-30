@@ -1,0 +1,39 @@
+.AutocompleteContainer {
+    width: 80%;
+    min-width: 500px;
+    display: flex;
+    gap: 10px;
+}
+
+.modeToggle {
+    background: #ffffff;
+    min-width: 150px;
+    height: 50px;
+    top: 105%;
+    opacity: 1;
+    font-size: 16px;
+    color: #000000;
+    box-shadow: 3px 0 36px rgba(30, 30, 30, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modeToggle:hover,
+.modeToggle:focus {
+    background: #252525;
+    color: #fff;
+    opacity: 1;
+}
+
+.selected {
+    background: orange;
+}
+
+.selected:hover,
+.selected:focus {
+    background: orange;
+    color: #fff;
+    opacity: 1;
+}

@@ -1,0 +1,39 @@
+.container {
+    min-width: 700px;
+    min-height: 350px;
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: inherit;
+    gap: 15px;
+}
+
+.row>* {
+    flex: 0 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.titlePopup {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titlePopup h2 {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 50px;
+    color: #323232;
+}
