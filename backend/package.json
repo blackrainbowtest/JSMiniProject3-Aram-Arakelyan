@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -21,5 +22,8 @@
   "devDependencies": {
     "nodemin": "^1.0.1",
     "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": "18.13.0"
   }
 }
