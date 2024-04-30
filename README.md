@@ -1,70 +1,137 @@
 ## JSMiniProject3-Aram-Arakelyan
 
-<!-- 
+<details><summary>### 💫 Project Description:</summary>
 
+<p>This project allows you to select places on the map and upload images there. Once the image is uploaded, it becomes available for viewing by the whole world.</p>
 
+</details>
 
-### 💫 Project Description:
-The task involved creating a mini-project to interact with external APIs. This project fetches data from the <b>api.artic.edu</b>.
+<details><summary>### 🚀 Key Features:</summary>
 
-### 🚀 Key Features:
-Fetch Requests: Utilizes fetch requests to communicate with external APIs.
-Modular Code Structure: All separate components and reusable code snippets are encapsulated into individual files as callable functions.
-Reactivity Logic: Implements reactivity logic, ensuring that only modified parts of the page are updated upon data changes.
-Single Page Application (SPA) Logic: The project utilizes a single-page application approach, with all logic implemented in JavaScript.
+- **Select Map Location:** Users can select locations on the map to upload images.
+- **Image Upload:** Ability to upload images to selected locations on the map.
+- **View pictures around the world:** Once the images are uploaded, they become available for viewing by the whole world.
 
-### 🛠 Tools used:
+- **Image Search:** Ability to search for images by location.
+
+</details>
+
+<details><summary>### 🛠 Tools used:</summary>
+
 [![GitHub](https://img.shields.io/badge/github-000.svg?&style=for-the-badge&logo=github&logoColor=fff)](https://github.com/)
 [![Visual Studio Code](https://img.shields.io/badge/vs%20code-007ACC.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=fff)](https://code.visualstudio.com/)
+[![Postman](https://img.shields.io/badge/postman-EF5B25.svg?&style=for-the-badge&logo=postman&logoColor=fff)](https://www.postman.com/)
 
+</details>
 
-### 🏴 Used in the project:
-[![HTML5](https://img.shields.io/badge/html-E34F26.svg?&style=for-the-badge&logo=html5&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/css-1572B6.svg?&style=for-the-badge&logo=css3&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/javascript-F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+<details><summary>### ♻ Used packages:</summary>
+    ```bash
+    npm i express
+    ```
+    ```bash
+    npm i nodemin -D
+    ```
+    ```bash
+    npm i mongodb
+    ```
+    ```bash
+    npm i mongoose
+    ```
+    ```bash
+    npm i --save-dev nodemon
+    ```
+    ```bash
+    npm i dotenv
+    ```
+    ```bash
+    npm i cors
+    ```
+    ```bash
+    npm i multer
+    ```
+    ```bash
+    npm i chalk
+    ```
+    ```bash
+    npm i react-i18next
+    ```
+    ```bash
+    npm i react-redux
+    ```
+    ```bash
+    npm i react-router-dom
+    ```
+    ```bash
+    npm i @react-google-maps/api
+    ```
+    ```bash
+    npm i @reduxjs/toolkit
+    ```
+    ```bash
+    npm i axios
+    ```
+    ```bash
+    npm i i18next
+    ```
+</details>
 
+<details><summary>### 📚 Usage:</summary>
 
-### ♻ Used packages:
-<p>- no packages were used</p>
-
-### 📚 Usage:
 
 1. **💻 Installation:**
+
 - Clone the repository to your local machine:
-    ```bash
-    git clone https://github.com/blackrainbowtest/StationProject2_aram_arakelyan.git
-    ```
+  ```bash
+  git clone https://github.com/blackrainbowtest/JSMiniProject3-Aram-Arakelyan.git
+  ```
 - Alternatively, you can click the "Code" button at the top of the repository page and select "Download ZIP" to download the repository as a ZIP file.
 
 2. **🚀 Running the Project:**
-   - Open the `index.html` file in your web browser.
 
-3. **🤝 Interacting with the Project:**
-   - **Browsing Data:** Users can scroll through the displayed data to explore different items.
-  
-    - **Pagination:** If the dataset is large, pagination controls allow users to navigate through multiple pages of data.
-    
-    - **Adding to Favorites:** Users have the option to add specific items to their favorites list for easy access.
-    
-    - **Viewing Favorites:** There is a dedicated section where users can view all items they have marked as favorites.
-    
-    - **Removing from Favorites:** Users can remove items from their favorites list if they no longer wish to keep them.
+- First install the dependencies using the command:
+  ```bash
+  npm run build
+  ```
+- First install the dependencies using the command:
+  ```bash
+  npm run build
+  ```
+- For Wondows: Use the start command to launch the project with one command in two terminals
+  ```bash
+  npm start
+  ```
+
+- For Windows, macOS and Linux:
+  ```bash
+  npm run server
+  ```
+  ```bash
+  npm run client
+  ```
 
 4. **🌟 Example Usage:**
    Here are some screenshots of the project:
 
-    - **Main Page:**
-    ![Main Page](https://drive.google.com/uc?id=1DqEW6JpzbJCqgs5C-1jq_VX3Opeol7aG)
+   - **Language change:**
+     ![Main Page](https://drive.google.com/uc?id=1ckZx-UTGVOEnQur-EhHwCwTerbqicTfo)
 
-    - **Adding to Favorites:**
-    ![Adding to Favorites](https://drive.google.com/uc?id=1m4Bmetf6rOG499QE23qyOidBqwxw04iR)
+   - **Searching:**
+     ![Adding to Favorites](https://drive.google.com/uc?id=1Venl4APImZtYqCBCZAELsMAfN_h_SIoJ)
 
-    - **Favorites Section:**
-    ![Favorites Section](https://drive.google.com/uc?id=15H9VX6zkBdzX5mBQzD45zOzGWwUXZfqt)
+   - **Turn on marker add mode:**
+     ![Favorites Section](https://drive.google.com/uc?id=1UZz6uAga7iAr-iZeuU-n9gcpzp_kx55Y)
 
-    - **Removing from Favorites:**
-    ![Removing from Favorites](https://drive.google.com/uc?id=1uD_ggbaf4gXuFBYqan2iwNM8cKbW8_p1)
--->
+   - **Clicking on map to add marker:**
+     ![Removing from Favorites](https://drive.google.com/uc?id=1xeJ6S3UMSm_O0kQVVhGxRrJ5tsfYYOaE)
+
+   - **Saving changes on server:**
+     ![Removing from Favorites](https://drive.google.com/uc?id=1olPf_S7vBcoXhPInyvMMNq8o2fqIogPF)
+
+   - **Now u can see your images:**
+     ![Removing from Favorites](https://drive.google.com/uc?id=1qPkTcQKFikQBxzRQdRIuZ8nmJW9BmP2B)
+
+</details>
+
 ### 🤝 Contribution:
 
 #### How to Contribute
@@ -73,13 +140,15 @@ Single Page Application (SPA) Logic: The project utilizes a single-page applicat
 - **Code changes:** If you'd like to make changes to the code, fork the repository, make the necessary modifications, and submit a [Pull Request](https://github.com/blackrainbowtest/JSMiniProject3-Aram-Arakelyan/pulls).
 
 #### Code Style
+
 Please adhere to the project's general coding guidelines and style. If you have any questions or concerns, feel free to ask for assistance.
 
 ### 📝 License:
+
 This project is licensed under the [MIT License](https://github.com/blackrainbowtest/StationProject2_aram_arakelyan/blob/main/LICENSE).
 
 ### 📧 Contact:
-If you have any questions or suggestions, don't hesitate to [get in touch with me](https://github.com/blackrainbowtest).
 
+If you have any questions or suggestions, don't hesitate to [get in touch with me](https://github.com/blackrainbowtest).
 
 ### 💖💙🧡 Thank you for your interest in the project!
