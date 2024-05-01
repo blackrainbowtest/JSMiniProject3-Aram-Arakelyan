@@ -1,7 +1,6 @@
 const Images = require('../models/images.model.js'); // Import the Images model
-const fs = require('fs');
-const path = require('path');
 
+const renderDomain = process.env.NODE_JS_RENDER_DOMAIN || `http://localhost:${process.env.NODE_JS_PORT}`
 
 
 const getImages = async (req, res) => {
@@ -13,7 +12,7 @@ const getImages = async (req, res) => {
         const imagesWithUrls = dbData.map(item => {
             const imagesUrls = item.images.map(image => {
                 const correctedImagePath = image.replace(/\\/g, '/');
-                return `http://localhost:${process.env.NODE_JS_PORT}/${correctedImagePath}`;
+                return `${renderDomain}/${correctedImagePath}`;
             });
 
             return {
