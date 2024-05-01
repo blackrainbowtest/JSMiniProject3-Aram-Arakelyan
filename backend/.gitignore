@@ -3,4 +3,3 @@ config.js
 logs/
 *.log
 .DS_Store
-.env
