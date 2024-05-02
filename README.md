@@ -1,70 +1,75 @@
 ## JSMiniProject3-Aram-Arakelyan
 
-<!-- 
+**Note:** The initial loading of the site may take some time.
+
+[Link to the website](https://tumolabsyourstory.netlify.app/)
 
 
+<details><summary>### 💫 Project Description:</summary>
 
-### 💫 Project Description:
-The task involved creating a mini-project to interact with external APIs. This project fetches data from the <b>api.artic.edu</b>.
+The <b>YourStory</b> project is a web application that allows users to add pins to Google Maps and attach photos to them. It is a powerful tool for organizing and visualizing information about various places, events or points of interest on a map.
 
-### 🚀 Key Features:
-Fetch Requests: Utilizes fetch requests to communicate with external APIs.
-Modular Code Structure: All separate components and reusable code snippets are encapsulated into individual files as callable functions.
-Reactivity Logic: Implements reactivity logic, ensuring that only modified parts of the page are updated upon data changes.
-Single Page Application (SPA) Logic: The project utilizes a single-page application approach, with all logic implemented in JavaScript.
+</details>
 
-### 🛠 Tools used:
+<details><summary>### 🚀 Key Features:</summary>
+
+Adding map pins: Users can select a location on the map and add a descriptive pin to it.
+Attaching Photos: You can attach photos to each tag to create a more visual representation of the place or event.
+Interactive Navigation: Users can easily navigate the map, zoom and search for places of interest.
+Online service: The project is deployed on online services, which ensures accessibility and ease of use for users from all over the world.
+
+</details>
+
+<details><summary>### 🛠 Tools used:</summary>
+
 [![GitHub](https://img.shields.io/badge/github-000.svg?&style=for-the-badge&logo=github&logoColor=fff)](https://github.com/)
 [![Visual Studio Code](https://img.shields.io/badge/vs%20code-007ACC.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=fff)](https://code.visualstudio.com/)
 
+</details>
 
-### 🏴 Used in the project:
-[![HTML5](https://img.shields.io/badge/html-E34F26.svg?&style=for-the-badge&logo=html5&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/css-1572B6.svg?&style=for-the-badge&logo=css3&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/javascript-F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+<details><summary>### ♻ Used packages:</summary>
 
+Check package.json files
 
-### ♻ Used packages:
-<p>- no packages were used</p>
+</details>
 
-### 📚 Usage:
+<details><summary>### 📚 Usage:</summary>
+
 
 1. **💻 Installation:**
 - Clone the repository to your local machine:
     ```bash
-    git clone https://github.com/blackrainbowtest/StationProject2_aram_arakelyan.git
+    git clone https://github.com/blackrainbowtest/JSMiniProject3-Aram-Arakelyan.git
     ```
 - Alternatively, you can click the "Code" button at the top of the repository page and select "Download ZIP" to download the repository as a ZIP file.
 
 2. **🚀 Running the Project:**
-   - Open the `index.html` file in your web browser.
+   - On Windows, you can use the command ```bash npm start ``` in the main directory. It will create two terminals and simultaneously run the client and server sides.
+   - You can use ```bash npm run client ``` and ```bash npm run server ```
+   - Or u can use ```bash cd frontend npm start ``` and ```bash cd backend npm start ```
 
-3. **🤝 Interacting with the Project:**
-   - **Browsing Data:** Users can scroll through the displayed data to explore different items.
-  
-    - **Pagination:** If the dataset is large, pagination controls allow users to navigate through multiple pages of data.
-    
-    - **Adding to Favorites:** Users have the option to add specific items to their favorites list for easy access.
-    
-    - **Viewing Favorites:** There is a dedicated section where users can view all items they have marked as favorites.
-    
-    - **Removing from Favorites:** Users can remove items from their favorites list if they no longer wish to keep them.
-
-4. **🌟 Example Usage:**
+3. **🌟 Example Usage:**
    Here are some screenshots of the project:
 
-    - **Main Page:**
-    ![Main Page](https://drive.google.com/uc?id=1DqEW6JpzbJCqgs5C-1jq_VX3Opeol7aG)
+    - **How to change language:**
+    ![Main Page](https://drive.google.com/uc?id=1ckZx-UTGVOEnQur-EhHwCwTerbqicTfo)
 
-    - **Adding to Favorites:**
-    ![Adding to Favorites](https://drive.google.com/uc?id=1m4Bmetf6rOG499QE23qyOidBqwxw04iR)
+    - **How to search locations:**
+    ![Adding to Favorites](https://drive.google.com/uc?id=1Venl4APImZtYqCBCZAELsMAfN_h_SIoJ)
 
-    - **Favorites Section:**
-    ![Favorites Section](https://drive.google.com/uc?id=15H9VX6zkBdzX5mBQzD45zOzGWwUXZfqt)
+    - **How to set mark on map:**
+    ![Favorites Section](https://drive.google.com/uc?id=1UZz6uAga7iAr-iZeuU-n9gcpzp_kx55Y)
+    ![Favorites Section](https://drive.google.com/uc?id=1xeJ6S3UMSm_O0kQVVhGxRrJ5tsfYYOaE)
 
-    - **Removing from Favorites:**
-    ![Removing from Favorites](https://drive.google.com/uc?id=1uD_ggbaf4gXuFBYqan2iwNM8cKbW8_p1)
--->
+    - **How to add images:**
+    ![Removing from Favorites](https://drive.google.com/uc?id=1olPf_S7vBcoXhPInyvMMNq8o2fqIogPF)
+
+    - **How to watch images:**
+    ![Removing from Favorites](https://drive.google.com/uc?id=1qPkTcQKFikQBxzRQdRIuZ8nmJW9BmP2B)
+
+</details>
+
+
 ### 🤝 Contribution:
 
 #### How to Contribute
