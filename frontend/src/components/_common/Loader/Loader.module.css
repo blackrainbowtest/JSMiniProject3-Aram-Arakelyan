@@ -1,7 +1,7 @@
 .loader_bg {
     position: fixed;
     z-index: 9999999;
-    background: #fff;
+    background: hsla(0, 0%, 100%, 0.506);
     top: 0;
     left: 0;
     width: 100vw;
@@ -21,4 +21,15 @@
 
 .loader img {
     width: 280px;
+    opacity: 0.5;
+    animation: rotateRight 2s infinite linear;
+}
+
+@keyframes rotateRight {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

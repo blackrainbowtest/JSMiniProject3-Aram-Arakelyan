@@ -1,4 +1,5 @@
 node_modules/
+etc
 .env
 config.js
 logs/

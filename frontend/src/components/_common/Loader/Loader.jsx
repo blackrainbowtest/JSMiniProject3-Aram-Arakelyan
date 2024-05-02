@@ -4,7 +4,7 @@ export const Loader = () => {
   return (
     <div className={s.loader_bg}>
       <div className={s.loader}>
-        <img src='/images/loading.gif' alt='loading...' />
+        <img src='/images/loading.webp' alt='loading...' />
       </div>
     </div>
   );

@@ -4,9 +4,8 @@ const mongoose = require('mongoose'); // Import mongoose library
 const ImagesSchema = mongoose.Schema(
     {
         images: [{ type: String, required: true }], // Array of image paths
-        lat: { type: Number, required: true }, // Latitude
-        lng: { type: Number, required: true }, // Longitude
-        text: { type: String, required: true } // Description
+        text: { type: String, required: true }, // Description
+        cor_id: { type: String, required: true }
     },
     {
         timestamps: true // Automatically add createdAt and updatedAt fields

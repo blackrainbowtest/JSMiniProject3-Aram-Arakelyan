@@ -14,7 +14,8 @@ import { getBrowserLocation } from "../../../../utils/geo";
 import { setUnlock } from "../../../../features/Main/MainSlice";
 import { ImageUploadPopup } from "./_components/ImageUploadPopup";
 import { ImageDisplayPopup } from "./_components/ImageDisplayPopup/ImageDisplayPopup";
-import { getImages, postImages } from "../../../../features/Image/ImageAPI";
+import { postImages } from "../../../../features/Image/ImageAPI";
+import { getCoordinates } from "../../../../features/Coordinates/CoordinatesAPI";
 import { setError } from "../../../../features/Image/ImageSlice";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -46,8 +47,7 @@ const MapSectionComponent = () => {
   });
 
   const dispatch = useDispatch();
-  // const markers1 = useSelector((state) => state?.image?.data)
-
+  
   // the function is not recreated again and does not call the render trigger
   const onPlaceSelect = useCallback((coordinates) => {
     setCenter(coordinates);
@@ -79,7 +79,7 @@ const MapSectionComponent = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getImages())
+    dispatch(getCoordinates())
       .then((markerData) => {
         setMarkers(markerData.payload);
       })
@@ -109,11 +109,10 @@ const MapSectionComponent = () => {
     (text, images) => {
       dispatch(postImages({ ...isPopap, text, images }))
         .then((res) => {
-          console.log(res);
-          setMarkers((prev) => [...prev, res.payload]);
+          setMode(MODES.MOVE);
           setIsPopap(false);
           dispatch(setUnlock(true));
-          setMode(MODES.MOVE);
+          setMarkers((prev) => [...prev, res.payload]);
         })
         .catch((error) => {
           dispatch(setError({ message: error }));
