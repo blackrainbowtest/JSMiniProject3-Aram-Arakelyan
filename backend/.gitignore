@@ -1,4 +1,5 @@
 node_modules/
+googleKey.json
 .env
 config.js
 logs/

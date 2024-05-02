@@ -18,7 +18,6 @@ export const LanguageSelector = ({ languages, onChange, isOpen, setIsOpen }) => 
         className={styles.languageSelectorButton}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {console.log(languages)}
         {
           languages?.find(
             (lang) => localStorage.getItem("language") ?  lang.slug === localStorage.getItem("language") : lang.slug === 'am'

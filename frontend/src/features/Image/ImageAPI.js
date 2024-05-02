@@ -15,6 +15,18 @@ export const getImages = createAsyncThunk(
     }
 );
 
+export const getImageByID = createAsyncThunk(
+    'image/getImageByID',
+    async (id, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${url}${id}`); // Send a request to the Node.js server
+            return response.data; // Return data from the response
+        } catch (err) {
+            return rejectWithValue(err.message); // Return an error message if something went wrong
+        }
+    }
+);
+
 export const postImages = createAsyncThunk(
     'post/addImages',
     async (requestData, { rejectWithValue }) => {

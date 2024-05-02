@@ -4,7 +4,7 @@ Main container style
 
 .mainContainer {
     width: 100%;
-    max-width: 50vw;
+    max-width: 60vw;
     overflow-y: auto;
     height: 100%;
     max-height: 25vh;

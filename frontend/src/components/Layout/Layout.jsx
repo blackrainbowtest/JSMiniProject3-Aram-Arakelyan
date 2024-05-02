@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import s from "./Layout.module.css";
 import { useSelector } from "react-redux";
 import { LanguageComponent } from "./_components/LanguageComponent";
+import { Loader } from "../_common/Loader";
 
 export const Layout = () => {
   const { t } = useTranslation();
@@ -18,6 +19,9 @@ export const Layout = () => {
   const currentSectionRef = useRef(0);
   const lastScrollTimeRef = useRef(0);
   const isUnlock = useSelector((state) => state?.main?.isUnlock);
+  const loading = useSelector((state) => state?.image?.loading);
+  const loadingCoordinates = useSelector((state) => state?.coordinates?.loading);
+  const loadingMain = useSelector((state) => state?.main?.loading);
 
   // State to track the active link and scroll state
   const [activeLink, setActiveLink] = useState(selections[0]?.title);
@@ -152,6 +156,7 @@ export const Layout = () => {
           </div>
         </nav>
       </header>
+      {loading || loadingCoordinates || loadingMain? <Loader /> : ""}
       <Outlet />
     </>
   );
