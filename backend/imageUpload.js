@@ -8,7 +8,7 @@ const GOOGLE_API_FOLDER_ID = process.env.NODE_JS_GOOGLE_API_FOLDER_ID;
 async function uploadToGoogleDrive(imageBuffer, fileName) {
     try {
         const auth = new google.auth.GoogleAuth({
-            keyFile: '/etc/secrets/googlekey.json',
+            keyFile: './etc/secrets/googleKey.json',
             scopes: ['https://www.googleapis.com/auth/drive']
         });
 
