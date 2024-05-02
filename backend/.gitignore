@@ -1,5 +1,5 @@
 node_modules/
-googleKey.json
+etc
 .env
 config.js
 logs/
