@@ -3,6 +3,7 @@
 **Note:** The initial loading of the site may take some time.
 
 [Link to the website](https://tumolabsyourstory.netlify.app/)
+### Attention! When you first try to launch a settled server, the build will take a long time from 1-3 minutes until the project is assembled on the server side.
 
 
 <details><summary>### 💫 Project Description:</summary>
