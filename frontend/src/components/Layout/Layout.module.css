@@ -1,9 +1,7 @@
-/*--------------------------------------------------------------------- 
-header 
----------------------------------------------------------------------*/
+/* Header */
 .header {
     position: fixed;
-    top: -110px;
+    top: 0;
     left: 0;
     width: 100%;
     background: rgba(39, 43, 44, 0.87);
@@ -21,36 +19,18 @@ header
     top: 0;
 }
 
-.containerFluid {
-    flex-wrap: nowrap;
-}
-
-.flexRow {
-    display: flex;
-    flex-direction: row;
-}
-
-a {
-    color: gray;
-}
-
-a:hover,
-a.active {
-    color: white;
-}
-
+/* Container */
 .container {
     max-width: 1170px;
     padding: 0 1.75rem;
     margin-inline: auto;
 }
 
-nav .container .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.containerFluid {
+    flex-wrap: nowrap;
 }
 
+/* Logo */
 .logo {
     height: 50px;
     display: flex;
@@ -67,13 +47,21 @@ nav .container .row {
     height: 50px;
 }
 
-nav .container .row .menu_bar {
+/* Menu */
+.menu_bar {
     display: flex;
     align-items: center;
     gap: 3rem;
 }
 
-nav .container .row .menu_bar li a {
+.menu_bar li a {
     text-transform: capitalize;
     font-size: 1.8rem;
+    color: gray;
+    transition: color 0.3s ease;
+}
+
+.menu_bar li a:hover,
+.menu_bar li a.active {
+    color: white;
 }
