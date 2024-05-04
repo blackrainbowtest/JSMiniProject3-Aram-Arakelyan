@@ -1,20 +1,16 @@
-section {
+.MainSection {
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
-section h2 {
-    position: relative;
-    color: #fff;
-    font-size: calc(10vw);
+.mainText {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #cdcdcd;
     z-index: 0;
-    
 }
 
-section .layer {
+.MainSection img {
     position: absolute;
-    top: -5;
-    left: -5;
-    width: 110%;
-    height: 110%;
 }
