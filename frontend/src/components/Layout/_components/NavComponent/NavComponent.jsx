@@ -5,6 +5,7 @@ import s from "./NavComponent.module.css";
 import { useSelector } from "react-redux";
 import { LinkComponent } from "./_components/LinkComponent/LinkComponent";
 import { ActiveLinkComponent } from "./_components/ActiveLinkComponent/ActiveLinkComponent";
+import { LanguageComponent } from "./_components/LanguageComponent/LanguageComponent";
 
 export const NavComponent = () => {
   const { t } = useTranslation();
@@ -145,9 +146,7 @@ export const NavComponent = () => {
           />
         );
       })}
-      {/* 
-        <LanguageComponent />      
-      */}
+      <LanguageComponent />
     </div>
   );
 };

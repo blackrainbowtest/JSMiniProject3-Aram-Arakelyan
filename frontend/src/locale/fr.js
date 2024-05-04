@@ -40,5 +40,10 @@ export const fr = {
         Main: 'Principal',
         Map: 'Carte',
         About_us: 'À propos de nous',
+        // Languages
+        am: 'am',
+        en: 'en',
+        ru: 'ru',
+        fr: 'fr',
     }
 }

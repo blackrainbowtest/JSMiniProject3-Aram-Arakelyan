@@ -7,6 +7,6 @@
     top: 0;
     right: 0;
     z-index: 10;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-size: 0;
 }

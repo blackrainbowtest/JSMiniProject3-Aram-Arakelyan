@@ -40,5 +40,10 @@ export const am = {
         Main: 'Գլխավոր',
         Map: 'Քարտեզ',
         About_us: 'Մեր մասին',
+        // Languages
+        am: 'Հայ',
+        en: 'Անգ',
+        ru: 'Ռու',
+        fr: 'Ֆր',
     }
 }

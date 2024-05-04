@@ -1,10 +1,18 @@
 /* LanguageSelector.module.css */
-
-.languageSelector {
-    position: relative;
-    display: inline-block;
-    z-index: 9999;
+.lngSelectComponent {
+    position: absolute;
+    top: 100;
+    left: 0;
+    z-index: 2;
+    color: white;
+    width: 100%;
+    background: #0E0E0E;
+    border-top: 1px solid rgba(255, 255, 255, .2);
 }
+
+
+
+
 
 .languageSelectorButton {
     background-color: transparent;
@@ -13,11 +21,7 @@
     padding: 0;
 }
 
-.languageSelectorButton img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
+
 
 .languageDropdown {
     position: absolute;
