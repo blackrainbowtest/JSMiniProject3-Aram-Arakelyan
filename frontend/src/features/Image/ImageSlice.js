@@ -4,7 +4,7 @@ import { getImageByID, getImages, postImages } from "./ImageAPI";
 const initialState = {
     data: [],
     loading: false,
-    errorMessage: []
+    errorMessage: [],
 }
 
 export const imageSlice = createSlice({

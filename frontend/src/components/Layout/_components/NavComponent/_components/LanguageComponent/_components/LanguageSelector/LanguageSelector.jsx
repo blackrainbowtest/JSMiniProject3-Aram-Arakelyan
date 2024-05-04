@@ -27,11 +27,7 @@ export const LanguageSelector = ({
         {languages.map(
           (lng, i) =>
             lng.slug !== localStorage.getItem("language") && (
-              <LanguageImage
-                key={i}
-                lng={lng}
-                callback={onChange}
-              />
+              <LanguageImage key={i} lng={lng} callback={onChange} />
             )
         )}
       </ClickOut>

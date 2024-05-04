@@ -11,7 +11,6 @@ import { Loader } from "../../../_common/Loader";
 import s from "../../Home.module.css";
 import sLocal from "./MapSectionComponent.module.css";
 import { getBrowserLocation } from "../../../../utils/geo";
-import { setUnlock } from "../../../../features/Main/MainSlice";
 import { ImageUploadPopup } from "./_components/ImageUploadPopup";
 import { ImageDisplayPopup } from "./_components/ImageDisplayPopup/ImageDisplayPopup";
 import { postImages } from "../../../../features/Image/ImageAPI";
@@ -69,9 +68,8 @@ const MapSectionComponent = () => {
   const onMarkerAdd = useCallback(
     (coordinates) => {
       setIsPopap(coordinates);
-      dispatch(setUnlock(false));
     },
-    [dispatch]
+    []
   );
 
   const clear = useCallback(() => {
@@ -99,9 +97,8 @@ const MapSectionComponent = () => {
     (e) => {
       setIsPopap(false);
       setIsSelected(false);
-      dispatch(setUnlock(true));
     },
-    [dispatch]
+    []
   );
 
   // Send data to server
@@ -111,7 +108,6 @@ const MapSectionComponent = () => {
         .then((res) => {
           setMode(MODES.MOVE);
           setIsPopap(false);
-          dispatch(setUnlock(true));
           setMarkers((prev) => [...prev, res.payload]);
         })
         .catch((error) => {
