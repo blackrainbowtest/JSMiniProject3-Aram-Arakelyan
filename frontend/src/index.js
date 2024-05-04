@@ -1,5 +1,5 @@
 // External library
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -34,8 +34,11 @@ i18next
   });
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+
+  </StrictMode>
 );
 reportWebVitals();

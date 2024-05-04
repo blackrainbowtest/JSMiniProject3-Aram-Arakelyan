@@ -1,0 +1,19 @@
+.swiperContainer {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Dark top black shadow */
+.dtBsh {
+    width: 100%;
+    height: 254px;
+    background: url('../../../images/Layout/dt_zzc_761cc0b.png') center top no-repeat;
+    background-size: 100% 245px;
+    top: 0;
+    position: fixed;
+    z-index: 3;
+    pointer-events: none;
+}

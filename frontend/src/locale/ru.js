@@ -40,5 +40,10 @@ export const ru = {
         Main: 'Главная',
         Map: 'Карта',
         About_us: 'О нас',
+        // Languages
+        am: 'арм',
+        en: 'анг',
+        ru: 'рус',
+        fr: 'фр',
     }
 }

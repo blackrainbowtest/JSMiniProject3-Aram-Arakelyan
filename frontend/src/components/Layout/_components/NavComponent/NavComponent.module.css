@@ -1,0 +1,12 @@
+.nav {
+    width: 796px;
+    height: 52px;
+    background: url('../../../../images/Layout/z_nav.png') top right no-repeat;
+    background-size: 796px 52px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    /* overflow: hidden; */
+    font-size: 0;
+}

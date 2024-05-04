@@ -1,0 +1,16 @@
+/* 
+Active nav
+*/
+.dt_active_nav {
+    width: 152px;
+    height: 52px;
+    background: url('../../../../../../images/Layout/nav_active.png') no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    -ms-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+}

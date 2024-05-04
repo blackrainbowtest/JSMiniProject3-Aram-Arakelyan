@@ -1,162 +1,127 @@
-import { Link, Outlet } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import s from "./Layout.module.css";
-import { useSelector } from "react-redux";
-import { LanguageComponent } from "./_components/LanguageComponent";
 import { Loader } from "../_common/Loader";
+import { MainContainer } from "../_common/MailContainer/MainContainer";
+import { LogoComponent } from "./_components/LogoComponent/LogoComponent";
+import { NavComponent } from "./_components/NavComponent/NavComponent";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export const Layout = () => {
   const { t } = useTranslation();
 
-  const selections = [
-    { link: "/", title: "Main", text: t("Main") },
-    { link: "/", title: "Map", text: t("Map") },
-    { link: "/", title: "About", text: t("About_us") },
-  ];
-
+  // Is everything load?
+  const loading = useSelector((state) => state?.image?.loading);
+  const loadingCoord = useSelector((state) => state?.coordinates?.loading);
+  const loadingMain = useSelector((state) => state?.main?.loading);
+  //   Keep active link index (default first link)
+  const [activeLink, setActiveLink] = useState(0);
+  //   Render array only when language is changed
+  const selections = useMemo(
+    () => [
+      { to: "/", title: "Main", label: t("Main") },
+      { to: "/", title: "Map", label: t("Map") },
+      { to: "/", title: "About", label: t("About_us") },
+    ],
+    [t]
+  );
+  // Keep refs
   const currentSectionRef = useRef(0);
   const lastScrollTimeRef = useRef(0);
-  const isUnlock = useSelector((state) => state?.main?.isUnlock);
-  const loading = useSelector((state) => state?.image?.loading);
-  const loadingCoordinates = useSelector((state) => state?.coordinates?.loading);
-  const loadingMain = useSelector((state) => state?.main?.loading);
 
-  // State to track the active link and scroll state
-  const [activeLink, setActiveLink] = useState(selections[0]?.title);
-  const [isScrolled, setIsScrolled] = useState(
-    window.scrollY === 0 ? false : true
+  const scrollTimerChangeHandler = useCallback((timer = 500) => {
+    const now = Date.now();
+    if (now - lastScrollTimeRef.current < timer) {
+      return; // Check that the handler is called no more than once every 500 milliseconds default
+    }
+    return (lastScrollTimeRef.current = now);
+  }, []);
+
+  const currentSectionChangeHandler = useCallback((index) => {
+    currentSectionRef.current = index;
+  }, []);
+
+  const getActiveContainerDOM = useCallback(
+    (index) => {
+      return document.getElementById(selections[index]?.title) || null;
+    },
+    [selections]
   );
 
   // Function to smoothly scroll a section by its ID
-  const scrollToSection = (sectionId) => {
-    currentSectionRef.current = selections.findIndex(
-      (item) => item.title === sectionId
-    );
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Adjust the margin Top value as needed
-      const marginTop = 0;
-      const scrollToY =
-        element.getBoundingClientRect().top + window.scrollY - marginTop;
-      window.scrollTo({ top: scrollToY, behavior: "smooth" });
-    }
-  };
-
-  // Function to determine the active section while scrolling
-  const determineActiveSection = () => {
-    for (let i = selections.length - 1; i >= 0; i--) {
-      const section = document.getElementById(selections[i].title);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) {
-          // Set the active link based on section
-          setActiveLink(selections[i].title);
-          break;
-        }
+  const scrollToSection = useCallback(
+    (index) => {
+      setActiveLink(index);
+      currentSectionChangeHandler(index);
+      const element = getActiveContainerDOM(index);
+      if (element) {
+        const elementTop = element.getBoundingClientRect().top;
+        const scrollToY = elementTop + window.scrollY;
+        // Adjust the margin Top value as needed
+        window.scrollTo({ top: scrollToY, behavior: "smooth" });
       }
-    }
-  };
+    },
+    [currentSectionChangeHandler, getActiveContainerDOM]
+  );
+
+  const navClickHandler = useCallback(
+    (index) => {
+      if (scrollTimerChangeHandler()) {
+        scrollToSection(index);
+      }
+    },
+    [scrollTimerChangeHandler, scrollToSection]
+  );
 
   useEffect(() => {
-    if (window.scrollY >= window.innerHeight) {
-      currentSectionRef.current = 1;
-      setActiveLink(selections[currentSectionRef.current].title);
-    }
-    if (window.scrollY >= window.innerHeight * 2) {
-      currentSectionRef.current = 2;
-      setActiveLink(selections[currentSectionRef.current].title);
-    }
-    const handleScroll = () => {
-      const paralaxContainerY = document
-        .getElementById("Main")
-        .getBoundingClientRect().top;
-      if (Math.abs(paralaxContainerY) >= window.innerHeight) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-      // Calling the function to determine the active section while scrolling
-      determineActiveSection();
-    };
+    scrollToSection(0);
     const handleWheelScroll = (event) => {
-      if (!isUnlock) {
+      if (
+        loading ||
+        loadingCoord ||
+        loadingMain ||
+        event.ctrlKey ||
+        !scrollTimerChangeHandler()
+      ) {
         return; // Check if App is bussy cansle whell scrolling
       }
-      const now = Date.now();
-      if (event.ctrlKey) {
-        return; // Check if Ctrl key is pressed (used for google maps)
-      }
-      if (now - lastScrollTimeRef.current < 500) {
-        return; // Check that the handler is called no more than once every 500 milliseconds
-      }
-      lastScrollTimeRef.current = now;
 
       if (event.deltaY > 0) {
         // Scroll down
         if (currentSectionRef.current < selections.length - 1) {
-          scrollToSection(selections[currentSectionRef.current + 1].title);
+          scrollToSection(currentSectionRef.current + 1);
         }
       } else if (event.deltaY < 0) {
         // Scroll up
         if (currentSectionRef.current > 0) {
-          scrollToSection(selections[currentSectionRef.current - 1].title);
+          scrollToSection(currentSectionRef.current - 1);
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("wheel", handleWheelScroll);
-
-    // Remive scroll event listener when the component unmount
+    // Remove scroll event listener when the component unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("wheel", handleWheelScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isUnlock]);
-
-  const logoClickHandle = (e) => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    currentSectionRef.current = 0;
-  };
+  }, []);
 
   return (
     <>
-      <header className={`${s.header} ${isScrolled ? s.scrolled : ""}`}>
-        <nav className={s.containerFluid}>
-          <div className={s.container}>
-            <div className={s.row}>
-              <div className={s.logo} onClick={logoClickHandle}>
-                <img src='/logo.png' alt='' />
-                {t("logo")}
-              </div>
-              <ul className={s.menu_bar}>
-                {selections.map((item, i) => {
-                  return (
-                    <li
-                      key={i}
-                      onClick={(e) => {
-                        scrollToSection(item.title);
-                      }}
-                    >
-                      <Link
-                        to={item?.link}
-                        className={activeLink === item.title ? s.active : ""}
-                      >
-                        {item?.text}
-                      </Link>
-                    </li>
-                  );
-                })}
-                <LanguageComponent />
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-      {loading || loadingCoordinates || loadingMain? <Loader /> : ""}
+      {loading || loadingCoord || loadingMain ? (
+        <Loader />
+      ) : (
+        <MainContainer>
+          <LogoComponent />
+          <NavComponent
+            selections={selections}
+            activeLink={activeLink}
+            callback={navClickHandler}
+          />
+        </MainContainer>
+      )}
       <Outlet />
     </>
   );

@@ -3,8 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     data: [],
     errorMessage: "",
-    loading: true,
-    isUnlock: true,
+    loading: false,
 }
 
 export const mainSlice = createSlice({
@@ -17,9 +16,6 @@ export const mainSlice = createSlice({
         setLoad: (state, action) => {
             state.loading = action.payload
         },
-        setUnlock: (state, action) => {
-            state.isUnlock = action.payload
-        },
         setCallback: (state, action) => {
             state.callback = action.payload;
         },
@@ -29,4 +25,4 @@ export const mainSlice = createSlice({
 // export slice to app/store
 export default mainSlice.reducer
 
-export const { setError, setLoad, setUnlock, setCallback } = mainSlice.actions
+export const { setError, setLoad, setCallback } = mainSlice.actions
