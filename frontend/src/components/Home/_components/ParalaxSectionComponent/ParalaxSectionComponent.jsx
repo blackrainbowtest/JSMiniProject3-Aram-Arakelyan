@@ -87,67 +87,7 @@ const ParalaxSectionComponent = () => {
 
   return (
     <section id='Main' className={s.MainSection}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <img
-            src={paralaxImg45}
-            className={localStyles.layer}
-            alt='img45'
-            style={{
-              transform: `translate(${positions.paralaxImg45.x}px, ${positions.paralaxImg45.y}px)`,
-              zIndex: 45,
-            }}
-          />
-          <img
-            src={paralaxImg46}
-            className={localStyles.layer}
-            alt='img46'
-            style={{
-              transform: `translate(${positions.paralaxImg46.x}px, ${positions.paralaxImg46.y}px)`,
-              zIndex: 46,
-            }}
-          />
-          <img
-            src={paralaxImg47}
-            className={localStyles.layer}
-            alt='img47'
-            style={{
-              transform: `translate(${positions.paralaxImg47.x}px, ${positions.paralaxImg47.y}px)`,
-              zIndex: 47,
-            }}
-          />
-          <img
-            src={paralaxImg48}
-            className={localStyles.layer}
-            alt='img48'
-            style={{
-              transform: `translate(${positions.paralaxImg48.x}px, ${positions.paralaxImg48.y}px)`,
-              zIndex: 48,
-            }}
-          />
-          <img
-            src={paralaxImg49}
-            className={localStyles.layer}
-            alt='img49'
-            style={{
-              transform: `translate(${positions.paralaxImg49.x}px, ${positions.paralaxImg49.y}px)`,
-              zIndex: 49,
-            }}
-          />
-          <img
-            src={paralaxImg50}
-            className={localStyles.layer}
-            alt='img50'
-            style={{
-              transform: `translate(${positions.paralaxImg50.x}px, ${positions.paralaxImg50.y}px)`,
-              zIndex: 50,
-            }}
-          />
-          <h2>{t("productName")}</h2>
-        </>
-      )}
+      555
     </section>
   );
 };

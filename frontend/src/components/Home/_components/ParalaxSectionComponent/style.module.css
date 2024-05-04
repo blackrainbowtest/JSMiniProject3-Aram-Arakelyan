@@ -7,7 +7,7 @@ section h2 {
     position: relative;
     color: #fff;
     font-size: calc(10vw);
-    z-index: 999;
+    z-index: 0;
     
 }
 
