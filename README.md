@@ -82,7 +82,7 @@ Check package.json files
 Please adhere to the project's general coding guidelines and style. If you have any questions or concerns, feel free to ask for assistance.
 
 ### 📝 License:
-This project is licensed under the [MIT License](https://github.com/blackrainbowtest/StationProject2_aram_arakelyan/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/blackrainbowtest/blackrainbowtest/blob/main/LICENSE).
 
 ### 📧 Contact:
 If you have any questions or suggestions, don't hesitate to [get in touch with me](https://github.com/blackrainbowtest).
